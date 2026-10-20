@@ -1,0 +1,107 @@
+<html>
+<title>For Extra Credit</title>
+  <link rel="stylesheet" href="first_css.css">
+<head>
+    <script>
+        var actualAnswer;
+        var number1;
+        var number2;
+        var totalCount = 0;
+        var correctCount = 0;
+        var questionLimit = 5;
+
+        function printQuestion() {
+            number1 = Math.ceil(Math.random() * 100);
+            number2 = Math.ceil(Math.random() * 100);
+            actualAnswer = number1 + number2;
+            document.getElementById("theQuestion").innerHTML = "What is " + number1 + "+" + number2 + "?";
+        }
+
+        function checkAnswer() {
+            var answer = document.getElementById("txtAnswer").value;
+            if (answer == actualAnswer) {
+                document.getElementById("finalResult").innerHTML = "Good job!";
+                printQuestion();
+            } else if (answer == "") {
+                document.getElementById("finalResult").innerHTML = "Please enter an answer.";
+            } else {
+                document.getElementById("finalResult").innerHTML = "Not quite,Try Again!";
+                printQuestion();
+            }
+        }
+        function clearAnswer() {
+            document.getElementById("txtAnswer").value = "";
+        }
+        function runGame() {
+            for (var i = 1; i < 2; i++) {
+                document.getElementById("message").innerHTML += "<h" + i + ">!Welcome to the !BEST! Math Game!</h" + i + "></p>";
+            }
+            printQuestion();
+        }
+        function countCorrectAnswers() {
+            if (document.getElementById("txtAnswer").value == actualAnswer) {
+                correctCount++;
+            }
+        }
+        function totalQuestions() {
+            totalCount++;
+        }
+        function endGame() {
+            if (totalCount == questionLimit) {
+                document.getElementById("finalResult").innerHTML = "You answered " + correctCount + " questions correctly out of " + totalCount + " questions!";
+            }
+        }
+        function resetGame() {
+            if (totalCount == questionLimit) {
+                document.getElementById("finalResult").innerHTML = "";
+                document.getElementById("txtAnswer").value = "";
+                document.getElementById("correctCount").innerHTML = 0;
+                document.getElementById("totalCount").innerHTML = 0;
+            }
+            printQuestion();
+        }
+        runGame();
+
+        
+    </script>
+    
+    <script>
+
+
+
+    </script>
+</head>
+
+<body onload="runGame();">
+
+    <table>
+        <tr>
+            <td colspan="2">
+                <div id="message"></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <hr size="1">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div id="theQuestion"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Your answer</td>
+            <td><input type="text" id="txtAnswer"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button id="btnSubmit" onClick="checkAnswer(); clearAnswer(); totalQuestions(); countCorrectAnswers(); endGame();">Submit</button></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button id="btnReset" onClick="resetGame();">Reset</button></td>
+        </tr>
+    </table>
+    <div id="finalResult"></div>
+</body>
+
+</html>

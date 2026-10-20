@@ -1,0 +1,51 @@
+
+body {
+  background-color: #688625;
+  font-family: tahoma, sans-serif;
+}
+
+.contact-header {
+  color: rgb(153, 10, 165);
+  text-align: center;
+}
+
+.contact-text {
+  color: #f8f404;
+  font-size: 18px;
+}
+
+
+#fName,
+#lName,
+#message,
+#email,
+#required
+ {
+  width: 250px;
+  padding: 8px;
+  margin: 8px 0;
+  border: 1px solid #1caba4;
+  border-radius: 8px;
+  
+}
+p {
+  color: rgb(95, 199, 236);
+  font-family: fantasy, monospace;
+  font-size: 30px;
+}
+#mySubmit {
+  background-color: #df0dbc;
+  color: rgb(78, 13, 167);
+  padding: 10px 20px;
+  border: 1px solid #0e0f0d48;
+  border-radius: 8px;
+}
+
+input:focus {
+  outline: 3px solid #0b0707;
+  background-color: #15b8d5;
+}
+input:required:user-invalid {
+  background-color: #b03b3b;
+  border: 2px solid rgb(9, 7, 7);
+}
