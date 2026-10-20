@@ -21,11 +21,15 @@
             var answer = document.getElementById("txtAnswer").value;
             if (answer == actualAnswer) {
                 document.getElementById("finalResult").innerHTML = "Good job!";
+                totalCount++;
+                correctCount++;
                 printQuestion();
-            } else if (answer == "") {
+            } 
+            else if (answer == "") {
                 document.getElementById("finalResult").innerHTML = "Please enter an answer.";
             } else {
                 document.getElementById("finalResult").innerHTML = "Not quite,Try Again!";
+                totalCount++;
                 printQuestion();
             }
         }
@@ -41,6 +45,7 @@
         function countCorrectAnswers() {
             if (document.getElementById("txtAnswer").value == actualAnswer) {
                 correctCount++;
+                printQuestion();
             }
         }
         function totalQuestions() {
@@ -95,7 +100,7 @@
             <td><input type="text" id="txtAnswer"></td>
         </tr>
         <tr>
-            <td colspan="2"><button id="btnSubmit" onClick="checkAnswer(); clearAnswer(); totalQuestions(); countCorrectAnswers(); endGame();">Submit</button></td>
+            <td colspan="2"><button id="btnSubmit" onClick="checkAnswer(); clearAnswer(); endGame();">Submit</button></td>
         </tr>
         <tr>
             <td colspan="2"><button id="btnReset" onClick="resetGame();">Reset</button></td>
